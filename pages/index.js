@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Navbar from "../components/Navbar";
+import Slider from "../components/Slider";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
         <link rel="icon" href="/apple.png" />
       </Head>
       <Navbar />
+      <Slider />
     </div>
   );
 }
