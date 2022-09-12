@@ -30,7 +30,7 @@ const Menu = ({ hide }) => {
           <li>
             <a href="#">Offers</a>
           </li>
-          <li className="hidden lg:block">
+          <li className="hidden lg:block h-full">
             <span className="block h-[110%] border-[0.5px] translate-y-[-5%]" />
           </li>
           <li>

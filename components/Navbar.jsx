@@ -8,8 +8,8 @@ const Navbar = () => {
     setIsHidden((prev) => !prev);
   };
   return (
-    <nav className="relative bg-black text-white p-3">
-      <div className="container">
+    <nav className="fixed z-50 w-full bg-black text-white">
+      <div className="container ">
         <div className="flex items-center justify-between">
           <span className="pl-2 cursor-pointer">
             <img className="w-8 lg:w-10" src="/assets/logo-xl.png" alt="logo" />
