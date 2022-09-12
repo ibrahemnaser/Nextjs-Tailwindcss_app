@@ -2,7 +2,11 @@ import React from "react";
 
 const Menu = ({ hide }) => {
   return (
-    <div className={`menu-list ${hide && "scale-y-0"} lg:scale-y-100`}>
+    <div
+      className={`menu-list ${
+        hide && "scale-y-0 opacity-0"
+      } lg:scale-y-100 lg:opacity-100`}
+    >
       <div className="flex justify-center flex-1">
         <ul className="flex flex-col lg:flex-row items-center gap-4 xl:gap-6 2xl:gap-8">
           <li>
