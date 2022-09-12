@@ -6,3 +6,12 @@ html {
   scroll-behavior: smooth;
   font-family: "Cairo", sans-serif;
 }
+
+@layer components {
+  .container {
+    @apply w-full max-w-screen-xl mx-auto sm:px-8 md:w-11/12;
+  }
+  .menu-list {
+    @apply absolute lg:static top-full left-0 w-full flex flex-col lg:flex-row items-center justify-end gap-4 p-8 lg:p-0 bg-black origin-top duration-300;
+  }
+}
