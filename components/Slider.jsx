@@ -41,7 +41,7 @@ const Slider = () => {
       <div>
         <div className="flex overflow-x-hidden">
           {imgs.length &&
-            imgs.map((img, indx) => {
+            imgs.map((img) => {
               return (
                 <img
                   key={img.id}
@@ -59,7 +59,7 @@ const Slider = () => {
         <div className="absolute z-10 bottom-4 left-1/2 -translate-x-1/2 p-2 bg-white shadow-md rounded-full">
           <ul className="flex gap-3">
             {imgs.length &&
-              imgs.map((img, indx) => {
+              imgs.map((img) => {
                 return (
                   <li
                     key={img.id}
