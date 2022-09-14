@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Navbar from "../components/Navbar";
+import Products from "../components/Products";
 import Slider from "../components/Slider";
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
       </Head>
       <Navbar />
       <Slider />
+      <Products />
     </div>
   );
 }

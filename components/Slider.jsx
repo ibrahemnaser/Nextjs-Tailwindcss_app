@@ -1,20 +1,10 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { getData } from "../helpers/methods";
 
 const Slider = () => {
   const [imgs, setImgs] = useState([]);
   const [active, setActive] = useState(1);
 
-  const getSliderImgs = async () => {
-    try {
-      const { data } = await axios.get(
-        "https://63189f2cf6b281877c71eab0.mockapi.io/slider"
-      );
-      setImgs(data);
-    } catch (err) {
-      console.error(err);
-    }
-  };
   useEffect(() => {
     // setImgs([
     //   {
@@ -34,10 +24,10 @@ const Slider = () => {
     //     id: "4",
     //   },
     // ]);
-    getSliderImgs();
+    getData("https://63189f2cf6b281877c71eab0.mockapi.io/slider", setImgs);
   }, []);
   return (
-    <section className="relative top-[75px] lg:top-20 flex justify-center">
+    <section className="relative pt-[75px] lg:pt-20 flex justify-center">
       <div>
         <div className="flex overflow-x-hidden">
           {imgs.length &&
