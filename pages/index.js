@@ -1,7 +1,7 @@
 import Head from "next/head";
-import Navbar from "../components/Navbar";
-import Products from "../components/Products";
+import NewsLetter from "../components/NewsLetter";
 import Slider from "../components/Slider";
+import Products from "../components/Products";
 
 export default function Home() {
   return (
@@ -18,9 +18,9 @@ export default function Home() {
           referrerpolicy="no-referrer"
         />
       </Head>
-      <Navbar />
       <Slider />
       <Products />
+      <NewsLetter />
     </div>
   );
 }

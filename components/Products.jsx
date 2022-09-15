@@ -62,6 +62,28 @@ const Products = () => {
             </div>
           </div> */}
         </div>
+        <div className="hidden lg:flex mt-8 justify-center">
+          <span className="flex items-center text-slate-300 cursor-pointer">
+            <i className="fa-solid fa-angle-left" />
+          </span>
+          <ul className="flex items-center gap-2">
+            {products.length &&
+              products.map((ele, indx) => {
+                return (
+                  <li key={indx}>
+                    <span
+                      className={`block w-[6px] h-[6px] rounded-full ${
+                        indx === 0 ? "bg-[#A7A9AC]" : "bg-[#D1D3D4]"
+                      } cursor-pointer`}
+                    />
+                  </li>
+                );
+              })}
+          </ul>
+          <span className="flex items-center text-slate-300 cursor-pointer">
+            <i className="fa-solid fa-angle-right" />
+          </span>
+        </div>
       </div>
     </section>
   );
