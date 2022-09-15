@@ -41,8 +41,8 @@ const Products = () => {
       <div className="container mt-3 lg:mt-9 pt-0">
         <div className="flex flex-wrap lg:flex-nowrap border-[#DDD] border-[1px] rounded-[10px]  ">
           {products.length &&
-            products.map((ele, indx) => {
-              return <ProductCard key={indx} product={ele} />;
+            products.map((ele) => {
+              return <ProductCard key={ele.id} product={ele} />;
             })}
 
           {/* <div className="flex basis-full lg:basis-1/2 divide-x divide-[#DDD]">
