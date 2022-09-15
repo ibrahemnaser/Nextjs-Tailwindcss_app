@@ -17,7 +17,10 @@ const NewsLetter = () => {
         <input
           type="submit"
           value="Subscribe"
-          className="text-[10px] lg:text-[16px] cursor-pointer bg-black text-white px-8 lg:px-[53px] py-2 lg:py-3 rounded-[4px] font-bold"
+          className="text-[10px] lg:text-[16px] cursor-pointer bg-black hover:bg-black/90 text-white px-8 lg:px-[53px] py-2 lg:py-3 rounded-[4px] font-bold"
+          onClick={(e) => {
+            e.preventDefault();
+          }}
         />
       </form>
     </section>

@@ -7,7 +7,6 @@ const ProductDetails = () => {
   const router = useRouter();
   const { productId } = router.query;
 
-  console.log(product?.img);
   useEffect(() => {
     getData(
       `https://63189f2cf6b281877c71eab0.mockapi.io/products/${productId}`,
@@ -17,18 +16,21 @@ const ProductDetails = () => {
   return (
     <section className="pt-[10px] lg:pt-14">
       <div className="container flex flex-col lg:flex-row lg:items-start lg:justify-between gap-9">
-        <div className="flex items-center justify-center gap-9">
+        <div className="flex items-center justify-center gap-9 lg:w-[60%]">
           <ul className="flex flex-col gap-6">
             {product &&
               product.img.map((img, indx) => {
                 return (
-                  <li className="w-8 h-8 lg:w-20 lg:h-20" key={indx}>
+                  <li
+                    className="w-8 h-8 lg:w-20 lg:h-20 cursor-pointer"
+                    key={indx}
+                  >
                     <img src={img} alt={product.name + ` small image`} />
                   </li>
                 );
               })}
           </ul>
-          <div className="w-[210px] h-[210px] lg:w-[530px] lg:h-[530px]">
+          <div className="w-[210px] h-[210px] lg:w-[75%] lg:min-w-[500px] lg:h-[500px] cursor-pointer">
             {product && (
               <img
                 className="lg:h-full"
@@ -52,21 +54,22 @@ const ProductDetails = () => {
             </h3>
             <div className="flex items-center gap-1">
               <ul className="flex ">
-                <li>
-                  <i className="fa-solid fa-star text-[#FFCF09]"></i>
-                </li>
-                <li>
-                  <i className="fa-solid fa-star text-[#FFCF09]"></i>
-                </li>
-                <li>
-                  <i className="fa-solid fa-star text-[#FFCF09]"></i>
-                </li>
-                <li>
-                  <i className="fa-regular fa-star text-[#AAAAAA]"></i>
-                </li>
-                <li>
-                  <i className="fa-regular fa-star text-[#AAAAAA]"></i>
-                </li>
+                {product &&
+                  [...new Array(product.numberOfStars)].map((ele, indx) => {
+                    return (
+                      <li key={indx}>
+                        <i className="fa-solid fa-star text-[#FFCF09]"></i>
+                      </li>
+                    );
+                  })}
+                {product &&
+                  [...new Array(5 - product.numberOfStars)].map((ele, indx) => {
+                    return (
+                      <li key={indx}>
+                        <i className="fa-regular fa-star text-[#AAAAAA]"></i>
+                      </li>
+                    );
+                  })}
               </ul>
               <span className="text-[#888888] text-xs">{`(${product?.numberOfReviews} Reviews)`}</span>
             </div>
@@ -168,7 +171,9 @@ const ProductDetails = () => {
           </div>
           <button
             className={`mt-10 mb-4 text-white px-6 py-3 rounded-[10px] font-[600] text-xs ${
-              product?.inStock ? "bg-[#0D4EB7]" : "bg-black"
+              product?.inStock
+                ? "bg-[#0D4EB7] hover:bg-blue-900"
+                : "bg-black hover:bg-black/90"
             }`}
           >
             Add to cart

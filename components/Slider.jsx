@@ -6,28 +6,10 @@ const Slider = () => {
   const [active, setActive] = useState(1);
 
   useEffect(() => {
-    // setImgs([
-    //   {
-    //     img: "http://preview.bit68.com/bit68Task/slider.png",
-    //     id: "1",
-    //   },
-    //   {
-    //     img: "https://www.91-cdn.com/hub/wp-content/uploads/2021/12/moto-edge-x30-specs-feat-2-1024x538.jpg?tr=q-100",
-    //     id: "2",
-    //   },
-    //   {
-    //     img: "https://assets.thehansindia.com/h-upload/2022/05/30/1600x960_1295133-mobiles-11.jpg",
-    //     id: "3",
-    //   },
-    //   {
-    //     img: "https://www.reliancedigital.in/wp-content/uploads/2022/03/cover_new_mobiles.jpg",
-    //     id: "4",
-    //   },
-    // ]);
     getData("https://63189f2cf6b281877c71eab0.mockapi.io/slider", setImgs);
   }, []);
   return (
-    <section className="relative pt-[75px] lg:pt-20 flex justify-center">
+    <section className="relative pt-[68px] lg:pt-20 flex justify-center">
       <div className="flex justify-center relative">
         <div className="flex overflow-x-hidden">
           {imgs.length &&
