@@ -17,4 +17,7 @@ html {
   .slider-arrow {
     @apply cursor-pointer bg-white p-1 rounded-full w-8 h-8 flex items-center justify-center opacity-50 hover:opacity-100;
   }
+  .details-card {
+    @apply w-20 h-14 flex items-center justify-center py-4 px-2 border rounded-xl border-[#C3C3C3];
+  }
 }
