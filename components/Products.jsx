@@ -5,28 +5,28 @@ import { getData } from "../helpers/methods";
 const Products = () => {
   const [products, setProducts] = useState([]);
 
-  const displayProducts = () => {
-    const iterationCount = Math.ceil(products.length / 2);
-    let productIndex = -2;
+  // const displayProducts = () => {
+  //   const iterationCount = Math.ceil(products.length / 2);
+  //   let productIndex = -2;
 
-    for (let i = 0; i < iterationCount; i++) {
-      productIndex += 2;
+  //   for (let i = 0; i < iterationCount; i++) {
+  //     productIndex += 2;
 
-      products.splice(productIndex, 1).map((ele) => {
-        return (
-          <div className="flex basis-full lg:basis-1/2 divide-x divide-[#DDD]">
-            {products.splice(productIndex, 2).map((ele) => {
-              return (
-                <div key={ele.id} className=" w-40 h-30 basis-1/2 ">
-                  <ProductCard />
-                </div>
-              );
-            })}
-          </div>
-        );
-      });
-    }
-  };
+  //     products.splice(productIndex, 1).map((ele) => {
+  //       return (
+  //         <div className="flex basis-full lg:basis-1/2 divide-x divide-[#DDD]">
+  //           {products.splice(productIndex, 2).map((ele) => {
+  //             return (
+  //               <div key={ele.id} className=" w-40 h-30 basis-1/2 ">
+  //                 <ProductCard />
+  //               </div>
+  //             );
+  //           })}
+  //         </div>
+  //       );
+  //     });
+  //   }
+  // };
   useEffect(() => {
     getData(
       "https://63189f2cf6b281877c71eab0.mockapi.io/products",
@@ -62,8 +62,8 @@ const Products = () => {
             </div>
           </div> */}
         </div>
-        <div className="hidden lg:flex mt-8 justify-center">
-          <span className="flex items-center text-slate-300 cursor-pointer">
+        <div className="hidden lg:flex mt-8 justify-center gap-3">
+          <span className="flex items-center text-[#A7A9AC] cursor-pointer">
             <i className="fa-solid fa-angle-left" />
           </span>
           <ul className="flex items-center gap-2">
@@ -80,7 +80,7 @@ const Products = () => {
                 );
               })}
           </ul>
-          <span className="flex items-center text-slate-300 cursor-pointer">
+          <span className="flex items-center text-[#A7A9AC] cursor-pointer">
             <i className="fa-solid fa-angle-right" />
           </span>
         </div>

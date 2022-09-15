@@ -28,7 +28,7 @@ const Slider = () => {
   }, []);
   return (
     <section className="relative pt-[75px] lg:pt-20 flex justify-center">
-      <div>
+      <div className="flex justify-center relative">
         <div className="flex overflow-x-hidden">
           {imgs.length &&
             imgs.map((img) => {
@@ -45,6 +45,26 @@ const Slider = () => {
                 />
               );
             })}
+        </div>
+        <div className="container hidden md:flex absolute top-0 w-full h-full justify-center">
+          <div className="flex items-center w-full justify-between ">
+            <span
+              className="slider-arrow"
+              onClick={() => {
+                setActive((prev) => (prev <= 1 ? 4 : prev - 1));
+              }}
+            >
+              <i className="fa-solid fa-angle-left" />
+            </span>
+            <span
+              className="slider-arrow"
+              onClick={() => {
+                setActive((prev) => (prev >= imgs.length ? 1 : prev + 1));
+              }}
+            >
+              <i className="fa-solid fa-angle-right" />
+            </span>
+          </div>
         </div>
         <div className="absolute z-10 bottom-4 left-1/2 -translate-x-1/2 p-2 bg-white shadow-md rounded-full">
           <ul className="flex gap-3">
@@ -66,26 +86,6 @@ const Slider = () => {
                 );
               })}
           </ul>
-        </div>
-      </div>
-      <div className="container hidden md:flex absolute top-0 w-full h-full justify-center">
-        <div className="flex items-center w-full justify-between ">
-          <span
-            className="slider-arrow"
-            onClick={() => {
-              setActive((prev) => (prev <= 1 ? 4 : prev - 1));
-            }}
-          >
-            <i className="fa-solid fa-angle-left" />
-          </span>
-          <span
-            className="slider-arrow"
-            onClick={() => {
-              setActive((prev) => (prev >= imgs.length ? 1 : prev + 1));
-            }}
-          >
-            <i className="fa-solid fa-angle-right" />
-          </span>
         </div>
       </div>
     </section>

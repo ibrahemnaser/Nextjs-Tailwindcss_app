@@ -9,13 +9,13 @@ const Navbar = () => {
   };
   return (
     <nav className="fixed z-50 w-full bg-black text-white">
-      <div className="container ">
+      <div className="container lg:py-3">
         <div className="flex items-center justify-between">
           <span className="pl-2 cursor-pointer">
-            <img className="w-8 lg:w-10" src="/assets/logo-xl.png" alt="logo" />
+            <img className="h-8 lg:h-16" src="/assets/logo-xl.png" alt="logo" />
           </span>
           <span className="cursor-pointer lg:hidden" onClick={toggleMenu}>
-            <img className="w-8" src="/assets/menu-xl.png" alt="toggler" />
+            <img className="w-6" src="/assets/menu-xl.png" alt="toggler" />
           </span>
           <Menu hide={isHidden} />
         </div>

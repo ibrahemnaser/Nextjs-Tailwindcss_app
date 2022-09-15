@@ -40,7 +40,7 @@ const Menu = ({ hide }) => {
             return (
               <li key={indx} className={link ? "" : "hidden lg:block h-full"}>
                 {link ? (
-                  <a href="#" className="font-bold">
+                  <a href="#" className="font-bold text-sm">
                     {link}
                   </a>
                 ) : (
