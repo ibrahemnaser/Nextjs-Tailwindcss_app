@@ -73,7 +73,8 @@ const ProductDetailsCard = ({ type }) => {
                 {ele.name}
               </span>
               <span
-                className={`block w-6 h-6 border border-[#707070] rounded-full bg-[${ele.bgColor}]`}
+                style={{ backgroundColor: ele.bgColor }}
+                className={`block w-6 h-6 border border-[#707070] rounded-full`}
               />
             </div>
           );

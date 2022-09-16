@@ -22,7 +22,7 @@ const ProductImage = ({ product }) => {
             );
           })}
       </ul>
-      <div className="relative w-[210px] h-[210px] lg:w-[75%] lg:min-w-[450px] lg:h-[500px] cursor-pointer">
+      <div className="relative w-[210px] h-[210px] max-w-[530px] lg:w-[75%] lg:min-w-[450px] lg:h-[530px] cursor-pointer">
         {product && (
           <Image
             src={product.img[0]}
