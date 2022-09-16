@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { getData } from "../helpers/methods";
 
@@ -6,25 +7,38 @@ const Slider = () => {
   const [active, setActive] = useState(1);
 
   useEffect(() => {
-    getData("https://63189f2cf6b281877c71eab0.mockapi.io/slider", setImgs);
+    const controller = new AbortController();
+    getData(
+      "https://63189f2cf6b281877c71eab0.mockapi.io/slider",
+      setImgs,
+      controller.signal
+    );
+    return () => {
+      controller.abort();
+    };
   }, []);
   return (
-    <section className="relative pt-[68px] lg:pt-20 flex justify-center">
-      <div className="flex justify-center relative">
-        <div className="flex overflow-x-hidden">
+    <section className="relative pt-[68px] lg:pt-[88px] flex justify-center">
+      <div className="flex justify-center relative w-full">
+        <div className="flex overflow-x-hidden w-full">
           {imgs.length &&
             imgs.map((img) => {
               return (
-                <img
+                <div
                   key={img.id}
-                  className={`min-h-[200px] duration-1000 origin-left ${
+                  className={`relative h-[220px] lg:h-[490px] w-full transition-opacity duration-1000 origin-left ${
                     active !== +img.id
                       ? ` opacity-0`
-                      : ` opacity-100 order-first`
+                      : ` opacity-100 order-first shrink-0`
                   }`}
-                  src={img.img}
-                  alt={`image ` + img.id}
-                />
+                >
+                  <Image
+                    src={img.img}
+                    alt={`image ` + img.id}
+                    className="object-cover"
+                    layout="fill"
+                  />
+                </div>
               );
             })}
         </div>

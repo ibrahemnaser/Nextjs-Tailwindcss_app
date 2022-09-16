@@ -6,10 +6,15 @@ const Products = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
+    const controller = new AbortController();
     getData(
       "https://63189f2cf6b281877c71eab0.mockapi.io/products",
-      setProducts
+      setProducts,
+      controller.signal
     );
+    return () => {
+      controller.abort();
+    };
   }, []);
   return (
     <section>

@@ -1,7 +1,7 @@
 import axios from "axios";
-export const getData = async (url, update) => {
+export const getData = async (url, update, controllerSignal) => {
   try {
-    const { data } = await axios.get(url);
+    const { data } = await axios.get(url, { signal: controllerSignal });
 
     update(data);
   } catch (err) {

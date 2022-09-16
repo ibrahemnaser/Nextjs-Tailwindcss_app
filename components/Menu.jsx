@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 const Menu = ({ hide }) => {
@@ -56,8 +57,13 @@ const Menu = ({ hide }) => {
           {icons.map((icon, indx) => {
             return (
               <li key={indx}>
-                <a href="#">
-                  <img className="w-5" src={icon.src} alt={icon.alt} />
+                <a href="#" className="flex">
+                  <Image
+                    width={"24px"}
+                    height={"24px"}
+                    src={icon.src}
+                    alt={icon.alt}
+                  />
                 </a>
               </li>
             );

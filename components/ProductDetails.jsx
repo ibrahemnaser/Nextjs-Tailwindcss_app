@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { getData } from "../helpers/methods";
@@ -8,10 +9,15 @@ const ProductDetails = () => {
   const { productId } = router.query;
 
   useEffect(() => {
+    const controller = new AbortController();
     getData(
       `https://63189f2cf6b281877c71eab0.mockapi.io/products/${productId}`,
-      setProduct
+      setProduct,
+      controller.signal
     );
+    return () => {
+      controller.abort();
+    };
   }, [productId]);
   return (
     <section className="pt-[10px] lg:pt-14">
@@ -22,20 +28,26 @@ const ProductDetails = () => {
               product.img.map((img, indx) => {
                 return (
                   <li
-                    className="w-8 h-8 lg:w-20 lg:h-20 cursor-pointer"
+                    className="relative w-8 h-8 lg:w-20 lg:h-20 cursor-pointer"
                     key={indx}
                   >
-                    <img src={img} alt={product.name + ` small image`} />
+                    <Image
+                      src={img}
+                      alt={product.name + ` small image`}
+                      className="object-contain"
+                      layout="fill"
+                    />
                   </li>
                 );
               })}
           </ul>
-          <div className="w-[210px] h-[210px] lg:w-[75%] lg:min-w-[500px] lg:h-[500px] cursor-pointer">
+          <div className="relative w-[210px] h-[210px] lg:w-[75%] lg:min-w-[500px] lg:h-[500px] cursor-pointer">
             {product && (
-              <img
-                className="lg:h-full"
+              <Image
                 src={product.img[0]}
                 alt={product.name + ` image`}
+                className="object-contain"
+                layout="fill"
               />
             )}
           </div>
