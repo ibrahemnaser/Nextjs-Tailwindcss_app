@@ -33,7 +33,7 @@ const Loading = () => {
     };
   }, [router.asPath]);
   return (
-    false && (
+    loading && (
       <section className="fixed top-0 bg-white z-[200] w-full h-full flex items-center justify-center">
         <div className="animate-spin bg-black shadow-lg w-14 h-14 border rounded-md"></div>
       </section>
