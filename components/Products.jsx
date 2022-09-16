@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import { getData } from "../helpers/methods";
+import Loader from "./Loader";
 
 const Products = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(null);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -24,16 +25,22 @@ const Products = () => {
       <div className="container mt-3 lg:mt-9 pt-0">
         <div className="flex flex-wrap lg:flex-nowrap border-[#DDD] border-[1px] rounded-[10px] divide-x divide-[#DDD] ">
           <div className="flex flex-col lg:flex-row basis-1/2 lg:basis-1/2 divide-y lg:divide-x lg:divide-y-0 divide-[#DDD]">
-            {products.length &&
+            {products ? (
               products.slice(0, Math.ceil(products.length / 2)).map((ele) => {
                 return <ProductCard key={ele.id} product={ele} />;
-              })}
+              })
+            ) : (
+              <Loader />
+            )}
           </div>
           <div className="flex flex-col lg:flex-row basis-1/2 lg:basis-1/2 divide-y lg:divide-x lg:divide-y-0 divide-[#DDD]">
-            {products.length &&
+            {products ? (
               products.slice(Math.ceil(products.length / 2)).map((ele) => {
                 return <ProductCard key={ele.id} product={ele} />;
-              })}
+              })
+            ) : (
+              <Loader />
+            )}
           </div>
         </div>
         <div className="hidden lg:flex mt-8 justify-center gap-3">
@@ -41,7 +48,7 @@ const Products = () => {
             <i className="fa-solid fa-angle-left" />
           </span>
           <ul className="flex items-center gap-2">
-            {products.length &&
+            {products &&
               products.map((ele, indx) => {
                 return (
                   <li key={indx}>

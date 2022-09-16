@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { getData } from "../helpers/methods";
+import Loader from "./Loader";
 import ProductDetailsCard from "./ProductDetailsCard";
 import ProductImage from "./ProductImage";
 import ProductPriceDetails from "./ProductPriceDetails";
@@ -24,7 +25,7 @@ const ProductDetails = () => {
   return (
     <section className="pt-[10px] lg:pt-14">
       <div className="container flex flex-col lg:flex-row lg:items-start lg:justify-between gap-9">
-        <ProductImage product={product} />
+        {product ? <ProductImage product={product} /> : <Loader />}
         <div className="flex flex-col">
           <ProductPriceDetails product={product} />
           <div className="bank-cards flex flex-col gap-[6px]">

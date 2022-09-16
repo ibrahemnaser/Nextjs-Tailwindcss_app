@@ -1,9 +1,10 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { getData } from "../helpers/methods";
+import Loader from "./Loader";
 
 const Slider = () => {
-  const [imgs, setImgs] = useState([]);
+  const [imgs, setImgs] = useState(null);
   const [active, setActive] = useState(1);
 
   useEffect(() => {
@@ -21,7 +22,7 @@ const Slider = () => {
     <section className="relative pt-[68px] lg:pt-[88px] flex justify-center">
       <div className="flex justify-center relative w-full">
         <div className="flex overflow-x-hidden w-full">
-          {imgs.length &&
+          {imgs ? (
             imgs.map((img) => {
               return (
                 <div
@@ -40,7 +41,10 @@ const Slider = () => {
                   />
                 </div>
               );
-            })}
+            })
+          ) : (
+            <Loader />
+          )}
         </div>
         <div className="container hidden md:flex absolute top-0 w-full h-full justify-center">
           <div className="flex items-center w-full justify-between ">
@@ -64,7 +68,7 @@ const Slider = () => {
         </div>
         <div className="absolute z-10 bottom-4 left-1/2 -translate-x-1/2 p-2 bg-white shadow-md rounded-full">
           <ul className="flex gap-3">
-            {imgs.length &&
+            {imgs &&
               imgs.map((img) => {
                 return (
                   <li
