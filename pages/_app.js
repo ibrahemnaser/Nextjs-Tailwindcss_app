@@ -2,10 +2,12 @@ import Head from "next/head";
 import "../styles/globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Loading from "../components/Loading";
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
+      <Loading />
       <Head>
         <title>Mobiley</title>
         <meta name="description" content="An E-commerce site for mobiles" />
@@ -18,9 +20,12 @@ function MyApp({ Component, pageProps }) {
           referrerpolicy="no-referrer"
         />
       </Head>
-      <Navbar />
-      <Component {...pageProps} />
-      <Footer />
+
+      <>
+        <Navbar />
+        <Component {...pageProps} />
+        <Footer />
+      </>
     </>
   );
 }

@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import React from "react";
+import Image from "next/image";
 
 const Footer = () => {
   const router = useRouter();
@@ -32,11 +33,15 @@ const Footer = () => {
         <ul className="flex gap-12 items-center justify-between max-w-[320px] lg:max-w-full lg:w-[890px] mx-auto">
           {icons.map((ele, indx) => {
             return (
-              <li key={indx}>
-                <img
+              <li
+                key={indx}
+                className="relative w-[42px] lg:w-[76px] h-[42px] lg:h-[76px]"
+              >
+                <Image
                   src={ele.src}
                   alt={ele.alt}
-                  className="h-[42px] lg:h-[76px] object-cover"
+                  className="object-contain"
+                  layout="fill"
                 />
               </li>
             );
