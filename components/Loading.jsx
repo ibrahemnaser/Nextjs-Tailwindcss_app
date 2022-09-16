@@ -7,12 +7,14 @@ const Loading = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const handleStart = (url) => url !== router.asPath && setLoading(true);
-    const handleComplete = (url) =>
-      url === router.asPath &&
+    const handleStart = (url) => {
+      url !== router.asPath && setLoading(true);
+    };
+    const handleComplete = (url) => {
       setTimeout(() => {
         setLoading(false);
       }, 1000);
+    };
 
     router.events.on("routeChangeStart", handleStart);
     router.events.on("routeChangeComplete", handleComplete);
@@ -23,7 +25,7 @@ const Loading = () => {
       router.events.off("routeChangeComplete", handleComplete);
       router.events.off("routeChangeError", handleComplete);
     };
-  });
+  }, [router.asPath]);
   return (
     loading && (
       <section className="fixed top-0 bg-white z-[200] w-full h-full flex items-center justify-center">

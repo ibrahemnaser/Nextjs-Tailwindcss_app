@@ -5,6 +5,8 @@ export const getData = async (url, update, controllerSignal) => {
 
     update(data);
   } catch (err) {
-    console.error(err);
+    if (err.name !== "CanceledError") {
+      console.error(err);
+    }
   }
 };
