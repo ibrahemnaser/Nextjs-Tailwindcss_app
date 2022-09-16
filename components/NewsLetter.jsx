@@ -4,7 +4,7 @@ const NewsLetter = () => {
   return (
     <section className="mt-[122px] lg:mt-8 bg-[#F0F0F0] pt-12 lg:pt-28 pb-10 lg:pb-[115px] text-center">
       <h4 className="text-sm lg:text-3xl mb-5 lg:mb-9">
-        Subscribe our newsletter to be notified when it'll be live.
+        Subscribe our newsletter to be notified when it&apos;ll be live.
       </h4>
       <form className="w-[294px] lg:w-[613px] flex justify-between m-auto border rounded-[4px] border-[#AAAAAA]">
         <input
