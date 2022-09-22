@@ -2,6 +2,6 @@
 
 [live demo](https://mobiely-ibrahemnaser.vercel.app/)
 
-This is a nextjs mobile website styled with tailwind css
+This is a Next.js mobile website styled with Tailwind CSS
 
-It is fully responsive and desinged with mobile-first approach
+It is fully responsive and designed with a mobile-first approach
